@@ -5,19 +5,19 @@ variable "aws_region" {
 }
 
 variable "cluster_name" {
-  description = "EKS 클러스터 이름"
+  description = "EKS cluster name"
   type        = string
   default     = "monitoring-cluster"
 }
 
 variable "cluster_version" {
-  description = "Kubernetes 버전"
+  description = "Kubernetes version"
   type        = string
-  default     = "1.28"
+  default     = "1.29"
 }
 
 variable "vpc_cidr" {
-  description = "VPC CIDR 블록"
+  description = "VPC CIDR block"
   type        = string
   default     = "10.0.0.0/16"
 }
@@ -29,7 +29,7 @@ variable "availability_zones" {
 }
 
 variable "node_group_name" {
-  description = "노드 그룹 이름"
+  description = "Node group name"
   type        = string
   default     = "monitoring-nodes"
 }
@@ -43,19 +43,19 @@ variable "node_group_instance_types" {
 variable "node_group_desired_size" {
   description = "Node group desired size"
   type        = number
-  default     = 2
+  default     = 1  # Minimize for free tier
 }
 
 variable "node_group_max_size" {
   description = "Node group maximum size"
   type        = number
-  default     = 3
+  default     = 1  # Minimize for free tier
 }
 
 variable "node_group_min_size" {
   description = "Node group minimum size"
   type        = number
-  default     = 1
+  default     = 1  # Keep minimum for free tier
 }
 
 variable "node_group_disk_size" {

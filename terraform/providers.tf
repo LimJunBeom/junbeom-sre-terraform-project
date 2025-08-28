@@ -29,7 +29,7 @@ provider "aws" {
   }
 }
 
-# EKS 클러스터 생성 후에 설정될 프로바이더들
+# Providers to be configured after EKS cluster creation
 provider "kubernetes" {
   host                   = module.eks.cluster_endpoint
   cluster_ca_certificate = base64decode(module.eks.cluster_certificate_authority_data)
