@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-app
+  namespace: default
+  labels:
+    app: test-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: test-app
+  template:
+    metadata:
+      labels:
+        app: test-app
+    spec:
+      containers:
+      - name: test-app
+        image: nginx:alpine
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 200m
+            memory: 256Mi
+        # Configuration for generating CPU load
+        command: ["/bin/sh"]
+        args:
+        - -c
+        - |
+          while true; do
+            # Generate CPU load
+            dd if=/dev/zero of=/dev/null &
+            sleep 1
+            kill $!
+            sleep 1
+          done
