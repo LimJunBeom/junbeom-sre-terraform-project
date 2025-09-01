@@ -111,15 +111,17 @@ kubectl get services -n monitoring
 
 ## 5. Access Grafana
 
-### 5.1 Get LoadBalancer IP
+### 5.1 Get NodePort
 ```bash
 kubectl get service -n monitoring grafana
 ```
 
 ### 5.2 Login to Grafana
-- URL: http://[LoadBalancer-IP]:3000
+- URL: http://[Node-IP]:[NodePort]
 - Username: admin
 - Password: admin123
+
+**Note**: Since we're using NodePort instead of LoadBalancer to avoid charges, you'll need to access via the node's IP address and the assigned NodePort.
 
 ## 6. Test HPA
 
@@ -156,11 +158,11 @@ watch kubectl get pods
 ### 8.1 Free Tier Limitations
 - EC2 t3.micro: 750 hours per month
 - EBS: 30GB
-- LoadBalancer: Hourly billing
+- LoadBalancer: Hourly billing (avoided by using NodePort)
 
 ### 8.2 Cost Saving Tips
 - Delete unnecessary resources immediately
-- Remove LoadBalancer after use
+- Using NodePort instead of LoadBalancer to avoid charges
 - Minimize storage size
 - Optimize auto-scaling settings
 
@@ -191,7 +193,7 @@ terraform destroy
 ### 10.1 Common Issues
 - **Node group creation failed**: Check IAM permissions
 - **Pod scheduling failed**: Check resource requests/limits
-- **Cannot access monitoring**: Check LoadBalancer status
+- **Cannot access monitoring**: Check NodePort service and node IP
 
 ### 10.2 Check Logs
 ```bash

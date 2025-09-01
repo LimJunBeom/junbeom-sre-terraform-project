@@ -20,7 +20,7 @@ grafana:
   #   storageClassName: gp2
   #   size: 5Gi
   service:
-    type: LoadBalancer  # Use LoadBalancer for external access
+    type: NodePort  # Use NodePort to avoid LoadBalancer charges
   dashboardProviders:
     dashboardproviders.yaml:
       apiVersion: 1

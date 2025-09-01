@@ -15,4 +15,4 @@ spec:
         ports: [ { containerPort: 80 } ]
         resources:
           requests: { cpu: "200m" }
-          limits:   { cpu: "500m" }
+          limits:   { cpu: "400m" }
