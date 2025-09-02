@@ -37,7 +37,7 @@ variable "node_group_name" {
 variable "node_group_instance_types" {
   description = "Node group instance types"
   type        = list(string)
-  default     = ["t3.micro"]  # Free tier instance
+  default     = ["t3.small"]  # Free tier instance
 }
 
 variable "node_group_desired_size" {
