@@ -31,7 +31,7 @@ module "vpc" {
 # EKS cluster
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
-  version = "~> 20.0"
+  version = "~> 19.0"
 
   cluster_name    = var.cluster_name
   cluster_version = var.cluster_version
@@ -64,16 +64,8 @@ module "eks" {
     }
   }
 
-  # Cluster security group
-  cluster_security_group_additional_rules = {
-    ingress_nodes_443 = {
-      description                = "Node groups to cluster API"
-      protocol                  = "tcp"
-      port                      = 443
-      type                      = "ingress"
-      source_node_security_group = true
-    }
-  }
+  # Cluster security group - simplified for compatibility
+  cluster_security_group_additional_rules = {}
 
   # Cluster tags
   tags = {
