@@ -9,6 +9,9 @@ module "vpc" {
   azs             = var.availability_zones
   public_subnets  = ["10.0.101.0/24", "10.0.102.0/24"]
 
+  # Enable auto-assign public IP for public subnets
+  map_public_ip_on_launch = true
+
   enable_nat_gateway     = false  # Disable NAT Gateway to avoid charges
   single_nat_gateway     = false
   one_nat_gateway_per_az = false
