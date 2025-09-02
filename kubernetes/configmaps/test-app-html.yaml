@@ -1,0 +1,235 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: test-app-html
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AWS EKS Monitoring Project</title>
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                margin: 0;
+                padding: 20px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                min-height: 100vh;
+            }
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                background: rgba(255, 255, 255, 0.1);
+                padding: 30px;
+                border-radius: 15px;
+                backdrop-filter: blur(10px);
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            }
+            h1 {
+                text-align: center;
+                margin-bottom: 30px;
+                font-size: 2.5em;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            }
+            .status-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 20px;
+                margin-bottom: 30px;
+            }
+            .status-card {
+                background: rgba(255, 255, 255, 0.2);
+                padding: 20px;
+                border-radius: 10px;
+                text-align: center;
+                border: 1px solid rgba(255, 255, 255, 0.3);
+            }
+            .status-card h3 {
+                margin: 0 0 15px 0;
+                color: #ffd700;
+            }
+            .status-value {
+                font-size: 2em;
+                font-weight: bold;
+                margin: 10px 0;
+            }
+            .load-test {
+                text-align: center;
+                margin: 30px 0;
+            }
+            .load-btn {
+                background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+                color: white;
+                border: none;
+                padding: 15px 30px;
+                font-size: 1.1em;
+                border-radius: 25px;
+                cursor: pointer;
+                transition: transform 0.2s;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            }
+            .load-btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            }
+            .load-btn:active {
+                transform: translateY(0);
+            }
+            .info-section {
+                background: rgba(255, 255, 255, 0.1);
+                padding: 20px;
+                border-radius: 10px;
+                margin-top: 20px;
+            }
+            .info-section h3 {
+                color: #ffd700;
+                margin-top: 0;
+            }
+            .tech-stack {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                justify-content: center;
+                margin: 15px 0;
+            }
+            .tech-tag {
+                background: rgba(255, 255, 255, 0.2);
+                padding: 5px 15px;
+                border-radius: 20px;
+                font-size: 0.9em;
+                border: 1px solid rgba(255, 255, 255, 0.3);
+            }
+            .timestamp {
+                text-align: center;
+                font-size: 0.9em;
+                opacity: 0.8;
+                margin-top: 20px;
+            }
+            @keyframes pulse {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.05); }
+                100% { transform: scale(1); }
+            }
+            .pulse {
+                animation: pulse 2s infinite;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>🚀 AWS EKS Monitoring Project</h1>
+            
+            <div class="status-grid">
+                <div class="status-card">
+                    <h3>Pod Status</h3>
+                    <div class="status-value" id="pod-status">Running</div>
+                    <p>Current pod is healthy and responding</p>
+                </div>
+                <div class="status-card">
+                    <h3>CPU Usage</h3>
+                    <div class="status-value" id="cpu-usage">Low</div>
+                    <p>Current CPU utilization</p>
+                </div>
+                <div class="status-card">
+                    <h3>Memory Usage</h3>
+                    <div class="status-value" id="memory-usage">Normal</div>
+                    <p>Current memory utilization</p>
+                </div>
+                <div class="status-card">
+                    <h3>HPA Status</h3>
+                    <div class="status-value" id="hpa-status">Active</div>
+                    <p>Horizontal Pod Autoscaler</p>
+                </div>
+            </div>
+
+            <div class="load-test">
+                <h3>🧪 Load Testing</h3>
+                <p>Click the button below to generate CPU load and test HPA functionality</p>
+                <button class="load-btn" onclick="generateLoad()">Generate CPU Load</button>
+                <div id="load-status"></div>
+            </div>
+
+            <div class="info-section">
+                <h3>📋 Project Information</h3>
+                <p>This is a demonstration of AWS EKS cluster with monitoring and auto-scaling capabilities.</p>
+                
+                <h4>Technology Stack:</h4>
+                <div class="tech-stack">
+                    <span class="tech-tag">AWS EKS</span>
+                    <span class="tech-tag">Terraform</span>
+                    <span class="tech-tag">Kubernetes</span>
+                    <span class="tech-tag">Prometheus</span>
+                    <span class="tech-tag">Grafana</span>
+                    <span class="tech-tag">HPA</span>
+                    <span class="tech-tag">Helm</span>
+                </div>
+                
+                <h4>Features:</h4>
+                <ul>
+                    <li>Infrastructure as Code with Terraform</li>
+                    <li>Automated EKS cluster deployment</li>
+                    <li>Monitoring stack with Prometheus & Grafana</li>
+                    <li>Horizontal Pod Autoscaler (HPA)</li>
+                    <li>Cost-optimized architecture</li>
+                </ul>
+            </div>
+
+            <div class="timestamp">
+                Last updated: <span id="current-time"></span>
+            </div>
+        </div>
+
+        <script>
+            function updateTime() {
+                const now = new Date();
+                document.getElementById('current-time').textContent = now.toLocaleString();
+            }
+            
+            function generateLoad() {
+                const btn = document.querySelector('.load-btn');
+                const status = document.getElementById('load-status');
+                
+                btn.disabled = true;
+                btn.textContent = 'Generating Load...';
+                status.innerHTML = '<p style="color: #ffd700;">🔄 Generating CPU load to test HPA...</p>';
+                
+                // Simulate CPU-intensive work
+                let start = Date.now();
+                let result = 0;
+                
+                for (let i = 0; i < 10000000; i++) {
+                    result += Math.sqrt(i);
+                }
+                
+                const duration = Date.now() - start;
+                
+                btn.disabled = false;
+                btn.textContent = 'Generate CPU Load';
+                status.innerHTML = `<p style="color: #90EE90;">✅ Load test completed in ${duration}ms</p>`;
+                
+                // Update status indicators
+                document.getElementById('cpu-usage').textContent = 'High';
+                document.getElementById('cpu-usage').classList.add('pulse');
+                
+                setTimeout(() => {
+                    document.getElementById('cpu-usage').textContent = 'Low';
+                    document.getElementById('cpu-usage').classList.remove('pulse');
+                }, 5000);
+            }
+            
+            // Update time every second
+            updateTime();
+            setInterval(updateTime, 1000);
+            
+            // Simulate status updates
+            setInterval(() => {
+                const statuses = ['Running', 'Healthy', 'Active'];
+                const randomStatus = statuses[Math.floor(Math.random() * statuses.length)];
+                document.getElementById('pod-status').textContent = randomStatus;
+            }, 10000);
+        </script>
+    </body>
+    </html>

@@ -11,8 +11,20 @@ spec:
     spec:
       containers:
       - name: hpa-example
-        image: registry.k8s.io/hpa-example
+        image: nginx:alpine
         ports: [ { containerPort: 80 } ]
         resources:
-          requests: { cpu: "200m" }
-          limits:   { cpu: "400m" }
+          requests: { cpu: "200m", memory: "128Mi" }
+          limits:   { cpu: "400m", memory: "256Mi" }
+        volumeMounts:
+        - name: html-content
+          mountPath: /usr/share/nginx/html
+        - name: nginx-config
+          mountPath: /etc/nginx/conf.d
+      volumes:
+      - name: html-content
+        configMap:
+          name: test-app-html
+      - name: nginx-config
+        configMap:
+          name: test-app-nginx-config

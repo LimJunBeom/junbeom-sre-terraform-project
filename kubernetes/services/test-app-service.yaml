@@ -4,10 +4,11 @@ metadata:
   name: test-app-service
   labels: { app: test-app }
 spec:
-  type: ClusterIP
+  type: NodePort
   ports:
   - port: 80
     targetPort: 80
     protocol: TCP
     name: http
+    nodePort: 30080
   selector: { app: test-app }
