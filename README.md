@@ -183,9 +183,6 @@ Beautiful interactive web interface with real-time monitoring capabilities:
 ![Web Dashboard Screenshot 2](docs/screenshots/Terraform_Web_Dashboard_Screenshot_2.png)
 *Interactive load testing and technology stack visualization*
 
-**Videos:**
-- [Web Dashboard Demo 1](docs/screenshots/Terraform_Web_Dashboard_Video_1.mov) - Dashboard overview and real-time updates
-- [Web Dashboard Demo 2](docs/screenshots/Terraform_Web_Dashboard_Video_2.mov) - Load testing and HPA functionality
 
 ### **📊 Grafana Monitoring Dashboards**
 Comprehensive monitoring with Prometheus and Grafana:
@@ -208,9 +205,6 @@ Comprehensive monitoring with Prometheus and Grafana:
 ![Grafana Node Exporter](docs/screenshots/Terraform_Grafana_Node_Exporter_Nodes_Screenshot.png)
 *Node exporter metrics and system monitoring*
 
-**Videos:**
-- [Grafana Demo 1](docs/screenshots/Terraform_Grafana_Video_1.mov) - Grafana dashboard overview and navigation
-- Grafana Demo 2 - Advanced monitoring features and alerting *(File too large for GitHub upload)*
 
 ## 🎉 **Project Success Metrics**
 

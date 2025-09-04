@@ -34,8 +34,6 @@ Thumbs.db
 # docs/screenshots/*.jpg
 # docs/screenshots/*.jpeg
 
-# Large video files (GitHub 100MB 제한 초과)
-docs/screenshots/Terraform_Grafana_Video_2.mov
 
 # Secrets
 secrets/
