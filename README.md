@@ -172,23 +172,45 @@ terraform destroy
 - **NAT Gateway**: $0 (disabled)
 - **Total**: $4-7 (within $100 credit limit)
 
-## 📸 **Screenshot Opportunities**
+## 📸 **Screenshots & Videos**
 
-### **Web Dashboard**
-- Beautiful gradient interface with status cards
-- Interactive load testing button
-- Technology stack visualization
-- Real-time status updates
+### **🌐 Web Dashboard**
+Beautiful interactive web interface with real-time monitoring capabilities:
 
-### **HPA Testing**
-- Load generation button interaction
-- CPU usage status changes
-- Pod scaling visualization
+![Web Dashboard Screenshot 1](docs/screenshots/Terraform_Web_Dashboard_Screenshot_1.png)
+*Main dashboard with gradient interface and status cards*
 
-### **Monitoring Integration**
-- Grafana dashboards
-- Prometheus metrics
-- Health endpoint responses
+![Web Dashboard Screenshot 2](docs/screenshots/Terraform_Web_Dashboard_Screenshot_2.png)
+*Interactive load testing and technology stack visualization*
+
+**Videos:**
+- [Web Dashboard Demo 1](docs/screenshots/Terraform_Web_Dashboard_Video_1.mov) - Dashboard overview and real-time updates
+- [Web Dashboard Demo 2](docs/screenshots/Terraform_Web_Dashboard_Video_2.mov) - Load testing and HPA functionality
+
+### **📊 Grafana Monitoring Dashboards**
+Comprehensive monitoring with Prometheus and Grafana:
+
+![Grafana Alert Rules](docs/screenshots/Terraform_Grafana_Alert_Rules_Screenshot.png)
+*Alert rules configuration and monitoring setup*
+
+![Grafana Compute Resources](docs/screenshots/Terraform_Grafana_Compute_Resources_Cluster_Screenshot.png)
+*Cluster compute resources monitoring*
+
+![Grafana Drilldown Metrics](docs/screenshots/Terraform_Grafana_Drilldown_Metrics_Screenshot.png)
+*Detailed metrics drilldown and analysis*
+
+![Grafana Networking Cluster](docs/screenshots/Terraform_Grafana_Networking_Cluster_Screenshot.png)
+*Cluster-level networking metrics*
+
+![Grafana Networking Namespace](docs/screenshots/Terraform_Grafana_Networking_Namespace_Screenshot.png)
+*Namespace-level networking monitoring*
+
+![Grafana Node Exporter](docs/screenshots/Terraform_Grafana_Node_Exporter_Nodes_Screenshot.png)
+*Node exporter metrics and system monitoring*
+
+**Videos:**
+- [Grafana Demo 1](docs/screenshots/Terraform_Grafana_Video_1.mov) - Grafana dashboard overview and navigation
+- Grafana Demo 2 - Advanced monitoring features and alerting *(File too large for GitHub upload)*
 
 ## 🎉 **Project Success Metrics**
 
